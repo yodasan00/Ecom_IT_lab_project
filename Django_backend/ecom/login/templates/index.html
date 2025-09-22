@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini Amazon - Home</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <header><h1>Mini Amazon</h1></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="catalogue.html">Books</a>
+     <a href="profile.html">Profile</a>
+     <a href="register.html">Register</a>
+     <a href="login.html">Login</a>
+     <a href="gateway.html">Payment</a>
+  </nav>
+  <div class="container">
+    <h2>Welcome to Mini Amazon!</h2>
+    <p>Discover books, register for an account, and explore your profile.</p>
+    <button onclick="window.location.href='catalogue.html'">Shop Books</button>
+  </div>
+</body>
+</html>
