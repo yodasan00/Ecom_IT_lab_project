@@ -3,6 +3,45 @@
 <html>
 <head>
   <title>Mini Amazon - Cart</title>
+  <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        form {
+            display: inline;
+        }
+        button {
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
@@ -15,3 +54,38 @@
      <a href="login.html">Login</a>
      <a href="gateway.html">Payment</a>
   </nav>
+
+  <h1>Your Cart</h1>
+
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li>
+                <strong>{{ book.book_name }}</strong> by {{ book.author_name }} — ₹{{ book.price }}
+                <form action="{% url 'remove' book.id %}" method="post" style="margin-left:10px;">
+                    {% csrf_token %}
+                    <button type="submit">Remove</button>
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
+
+         <div class="total">
+            Total Price: ₹{{ total_price }}
+        </div>
+
+        <form action="{% url 'payment_page' %}" method="get" style="text-align:right; margin-top:10px;">
+        <button type="submit">Proceed to Payment</button>
+        </form>
+
+        <p style="text-align:center;">
+            <a href="{% url 'book_display' %}">⬅ Continue Shopping</a>
+        </p>
+
+    {% else %}
+        <p>Your cart is empty.</p>
+        <p><a href="{% url 'book_display' %}">Go back to shop</a></p>
+    {% endif %}
+
+</body>
+</html>
