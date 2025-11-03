@@ -1,6 +1,6 @@
 # Virtual environment
 Django_backend/ecom/y_env/
-
+env
 # Python cache / compiled files
 __pycache__/
 *.pyc
