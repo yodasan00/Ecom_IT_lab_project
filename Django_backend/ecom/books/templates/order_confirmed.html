@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmed</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background-color: #f0fff0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        h1 {
+            color: green;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        .summary {
+            margin-top: 15px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #222;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Order Confirmed!</h1>
+
+        <div class="summary">
+            <h3>Order Details</h3>
+            <ul>
+                {% for book in order.books %}
+                    <li>{{ book }}</li>
+                {% endfor %}
+            </ul>
+
+            <p><strong>Total Paid:</strong> ₹{{ order.total }}</p>
+            <p><strong>Order Time:</strong> {{ order.time }}</p>
+        </div>
+
+        <a href="{% url 'book_display' %}">⬅ Back to Home</a>
+    </div>
+</body>
+</html>

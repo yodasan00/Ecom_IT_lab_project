@@ -1,0 +1,24 @@
+# Virtual environment
+Django_backend/ecom/y_env/
+env
+# Python cache / compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Django database
+Django_backend/ecom/db.sqlite3
+
+# Django media & static files
+Django_backend/ecom/media/
+Django_backend/ecom/staticfiles/
+
+# Logs
+*.log
+
+# Environment variables
+*.env
+
+# IDE/editor settings
+.vscode/
+.idea/

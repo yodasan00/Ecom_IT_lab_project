@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <header><h1>User Login</h1></header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="catalogue.html">Books</a>
+     <a href="profile.html">Profile</a>
+     <a href="register.html">Register</a>
+     <a href="login.html">Login</a>
+     
+  </nav>
+  <div class="container">
+    <h2>Login to Your Account</h2>
+      
+      {% if error_message %}
+        <p style="color:red;">{{ error_message }}</p>
+      {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <p><input type="email" placeholder="Email" required name='emailid'></p>
+      <p><input type="password" placeholder="Password" required name='passid'></p>
+      <p><button type="submit">Login</button></p>
+    </form>
+  </div>
+  <script src="{% static 'script.css' %}"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Now</title>
+</head>
+<body>
+    <h1>Buying "{{ book.book_name }}"</h1>
+    <p><strong>Author:</strong> {{ book.author_name }}</p>
+    <p><strong>Price:</strong> ₹{{ book.price }}</p>
+    <p>✅ Purchase simulated successfully (you can integrate payment later).</p>
+
+    <p><a href="{% url 'book_display' %}">Back to Books</a></p>
+</body>
+</html>
